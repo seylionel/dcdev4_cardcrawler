@@ -1,0 +1,57 @@
+.player {
+  @include fx(column nowrap);
+  border: rem(3px) solid $albescent-white;
+  padding: 0 rem(16px) rem(32px);
+  position: relative;
+  text-align: center;
+  
+  &__picture {
+    background: $outer-space;
+    border: rem(3px) solid $albescent-white;
+    margin-top: rem(-38px);
+    padding: rem(3px);
+  }
+
+  &__name {
+    text-transform: uppercase;
+    margin: rem(16px) 0;
+  }
+  
+  &__life {
+    align-self: stretch;
+    border: rem(3px) solid $albescent-white;
+    padding: rem(3px);
+    position: relative;
+    margin-bottom: rem(16px);
+    z-index: 0;
+  }
+
+  &__bar {
+    @include position(rem(3px),rem(3px),rem(3px),rem(3px));
+    background: $pomegranate;
+    z-index: -1;
+    
+    &--current {
+      background: $sushi;
+      right: auto;
+      width: 80%;
+    }
+  }
+
+  &__items {
+    @include fx(row wrap);
+    @include position(auto, 0, rem(-29px), 0);
+  }
+
+  &__item {
+    background: $outer-space;
+    border: rem(2px) solid $albescent-white;
+    padding: rem(3px);
+    margin: rem(3px);
+
+    img {
+      height: auto;
+      width: rem(40px);
+    }
+  }
+}

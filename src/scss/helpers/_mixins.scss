@@ -1,0 +1,185 @@
+// =============================================================================
+// Breakpoints
+// =============================================================================
+
+@mixin respond-to($breakpoint) {
+  // Retrieves the value from the key
+  $value: map-get($breakpoints, $breakpoint);
+
+  // If the key exists in the map
+  @if $value != null {
+    // Prints a media query based on the value
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+// =============================================================================
+// Position absolute/relative, en pourcentage par defaut (autre unité possible)
+// =============================================================================
+
+@mixin position($top: null, $right: null, $bottom: null, $left: null, $position: absolute) {
+  position: $position;
+  @if ($top != null) {
+      @if ($top == auto) {
+          top: auto;
+      } @else if unitless($top) {
+          top: $top*1%;
+      } @else {
+          top: $top;
+      }
+  }
+  @if ($right != null and ($position == 'absolute' or $position == 'fixed')) {
+      @if ($right == auto) {
+          right: auto;
+      } @else if unitless($right) {
+          right: $right*1%;
+      } @else {
+          right: $right;
+      }
+  }
+  @if ($bottom != null and ($position == 'absolute' or $position == 'fixed')) {
+      @if ($bottom == auto) {
+          bottom: auto;
+      } @else if unitless($bottom) {
+          bottom: $bottom*1%;
+      } @else {
+          bottom: $bottom;
+      }
+  }
+  @if ($left != null) {
+      @if ($left == auto) {
+          left: auto;
+      } @else if unitless($left) {
+          left: $left*1%;
+      } @else {
+          left: $left;
+      }
+  }
+}
+
+// =============================================================================
+// ::before, ::after
+// =============================================================================
+
+@mixin pseudo-element($content:'', $display:block) {
+  content:$content;
+  display:$display;
+  @content;
+}
+
+@mixin after($content:'', $display:block) {
+  &::after {
+      @include pseudo-element($content, $display) {
+          @content;
+      }
+  }
+}
+
+@mixin before($content:'', $display:block) {
+  &::before {
+      @include pseudo-element($content, $display) {
+          @content;
+      }
+  }
+}
+
+// =============================================================================
+// Flexbox
+// =============================================================================
+
+@mixin fx($ff: row nowrap, $jc: center, $ai: center) {
+  display: flex;
+  flex-flow: $ff;
+  justify-content: $jc;
+  align-items: $ai;
+}
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Hugo Giraudel
+/// @author Pierre Burel
+/// @access public
+/// @param {String} $string - Initial string
+/// @param {String | List | Map} $search - Substring(s) to replace
+/// @param {String | List} $replace [''] - New value(s)
+/// @return {String} - Updated string
+/// @link https://css-tricks.com/snippets/sass/str-replace-function/
+@function str-replace($string, $search, $replace: "") {
+  @if type-of($search) == map {
+    @each $key, $value in $search {
+      $string: str-replace($string, $key, $value);
+    }
+  }
+
+  @else if type-of($search) == list and type-of($replace) == list {
+      @if length($search) != length($replace) {
+        @error "`$replace` must have the same length as `$search`.";
+      }
+
+      @for $i from 1 through length($search) {
+        $string: str-replace($string, nth($search, $i), nth($replace, $i));
+      }
+  }
+
+  @else if type-of($search) == list {
+    @each $key in $search {
+      $string: str-replace($string, $key, $replace);
+    }
+  }
+
+  @else if type-of($replace) == list {
+    @error "You cannot replace one item with multiple ones.";
+  }
+
+  @else {
+    $index: str-index($string, $search);
+
+    @if $index {
+      $string: str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_")
+  );
+
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype"
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}

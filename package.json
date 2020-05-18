@@ -1,0 +1,87 @@
+{
+  "name": "woodstack",
+  "version": "1.0.0",
+  "description": "Cards Crawler!",
+  "main": "index.js",
+  "watch": {
+    "build-html": {
+      "patterns": [
+        "src/pug"
+      ],
+      "extensions": "pug",
+      "quiet": false
+    },
+    "build-css": {
+      "patterns": [
+        "src/scss"
+      ],
+      "extensions": "scss",
+      "quiet": false
+    },
+    "build-js": {
+      "patterns": [
+        "src/js/"
+      ],
+      "extensions": "js",
+      "quiet": false
+    },
+    "build-img": {
+      "patterns": [
+        "src/img"
+      ],
+      "extensions": "*",
+      "quiet": false
+    },
+    "build-copy": {
+      "patterns": [
+        "src/fonts",
+        "src/favicon"
+      ],
+      "extensions": "woff, woff2, png, xml, ico, svg, webmanifest",
+      "quiet": false
+    }
+  },
+  "scripts": {
+    "build-css": "node-sass src/scss/styles.scss dist/css/styles.css --output-style compressed",
+    "js-dir": "mkdirp -p dist/js",
+    "js-wp": "webpack",
+    "build-js": "run-s js-dir js-wp",
+    "watch-js": "npm-watch build-js",
+    "html-check": "node-w3c-validator -i dist/*.html",
+    "html-pug": "pug src/pug -o dist --pretty",
+    "build-html": "run-s html-pug html-check",
+    "build-img": "imagemin src/img/* --out-dir=dist/img",
+    "build-copy": "copyfiles -u 1 src/fonts/* src/favicon/* dist",
+    "watch-copy": "npm-watch build-copy",
+    "w": "run-s clear build-* && npm-watch",
+    "r": "reload -b -d dist -p 1988 -v",
+    "clear": "rm -rf dist && mkdirp -p dist/js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-loader": "^8.0.6",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "copyfiles": "^2.1.1",
+    "imagemin": "^7.0.1",
+    "imagemin-cli": "^5.1.0",
+    "mkdirp": "^1.0.4",
+    "node-sass": "^4.14.1",
+    "node-w3c-validator": "^1.6.1",
+    "npm-run-all": "^4.1.5",
+    "npm-watch": "^0.6.0",
+    "pug": "^2.0.4",
+    "pug-cli2": "^1.0.0-alpha6.1",
+    "reload": "^3.0.4",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "aos": "^3.0.0-beta.6",
+    "bootstrap": "^4.5.0",
+    "jquery": "^1.12.4"
+  }
+}

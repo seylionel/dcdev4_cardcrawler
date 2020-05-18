@@ -1,0 +1,6 @@
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: rem(140px) rem(140px) rem(140px) rem(140px);
+  grid-gap: rem(15px);
+}

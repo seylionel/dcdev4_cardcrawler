@@ -1,0 +1,8 @@
+.header {
+  background: $darkslategray;
+  text-align: center;
+
+  &__title {
+    padding: rem(16px) 0;
+  }
+}

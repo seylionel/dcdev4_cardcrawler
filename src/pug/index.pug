@@ -1,0 +1,37 @@
+doctype html
+html(lang="en")
+  include includes/_head.pug
+  body
+    include includes/_header.pug
+
+    main.main
+      .container
+        .row.align-items-center
+          .col-12.col-sm-3
+            .player
+              .player__picture
+                img(src="img/zoe.png", alt="Zoe")
+              h2.player__name Zoe
+              p.player__desc I'm Zoe, what's your name?
+              .player__life
+                .player__bar
+                .player__bar.player__bar--current
+                span.player__life-current 80
+                |/
+                span.player__life-max 100
+              .player__items
+                .player__item(title="lorem ipsum dolor sit amet...")
+                  img(src="img/33.png", alt="Rabaddon")
+                .player__item(title="lorem ipsum dolor sit amet...")
+                  img(src="img/34.png", alt="Ludden")
+          .col-12.col-sm-9
+            - var n = 1;
+            .board
+              while n < 33
+                .card
+                  .card__holder
+                    .card__inner
+                      .card__button Pick me!
+                      .card__index= n++
+
+    include includes/_footer.pug
