@@ -61,7 +61,7 @@ html(lang="en")
                 .card__holder
                   .card__inner(style="background-image: url('img/e-zed.jpg')")
                     .card__item ?
-                .card__type(style="background-image: url('img/t-normal.png')")
+                .card__type(data-tippy-content="Normal enemy, nothing to worry about..." style="background-image: url('img/t-normal.png')")
                 .card__damage 12
               .card(data-type="item")
                 .card__holder
@@ -87,7 +87,13 @@ html(lang="en")
                   .card__inner
                     .card__item(data-tippy-content="Dagger: every use decrease his damage by 1" style="background-image: url('img/w-dagger.png')")
                       .card__value 6
-              - var n = 3;
+              .card(data-type="enemy")
+                .card__holder
+                  .card__inner(style="background-image: url('img/e-thresh.jpg')")
+                    .card__item ?
+                .card__type(data-tippy-content="Normal enemy, nothing to worry about..." style="background-image: url('img/t-normal.png')")
+                .card__damage= 3
+              - var n = 4;
               while n < 9
                 .card
                   .card__holder
