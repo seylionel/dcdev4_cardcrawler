@@ -10,28 +10,90 @@ html(lang="en")
           .col-12.col-sm-3
             .player
               .player__picture
-                img(src="img/zoe.png", alt="Zoe")
+                img(src="img/c-zoe.jpg", alt="Zoe")
+                .player__debuffs
+                  .player__debuff(data-tippy-content="You're in fire!! You loose 1 life point every turn" style="background-image: url('img/t-fire.png')")
               h2.player__name Zoe
-              p.player__desc I'm Zoe, what's your name?
               .player__life
                 .player__bar
                 .player__bar.player__bar--current
                 span.player__life-current 80
                 |/
                 span.player__life-max 100
-              .player__items
-                .player__item(title="lorem ipsum dolor sit amet...")
-                  img(src="img/33.png", alt="Rabaddon")
-                .player__item(title="lorem ipsum dolor sit amet...")
-                  img(src="img/34.png", alt="Ludden")
+              .player__item(data-tippy-content="Dagger: every use decrease his damage by 1")
+                .shadow.shadow--inner
+                  img(src="img/w-dagger.png", alt="Dagger")
+                .player__damage 6
+                  
+            .console.shadow.shadow--inner
+              h2 Debugbar
+
           .col-12.col-sm-9
-            - var n = 1;
             .board
-              while n < 33
+              .card(data-type="enemy")
+                .card__holder
+                  .card__inner(style="background-image: url('img/e-yasuo.jpg')")
+                    .card__hidden ?
+                .card__type(data-tippy-content="Normal enemy, nothing to worry about..." style="background-image: url('img/t-normal.png')")
+                .card__damage 9
+              - var n = 2;
+              while n < 9
                 .card
                   .card__holder
                     .card__inner
-                      .card__button Pick me!
-                      .card__index= n++
+                      .card__item ?
+                      - ++n
+              
+              .card(data-type="item")
+                .card__holder
+                  .card__inner
+                    .card__item(data-tippy-content="Remove all debuffs and heal you for 5 life points" style="background-image: url('img/i-life.png')")
+                      .card__value +5
+              - var n = 2;
+              while n < 9
+                .card
+                  .card__holder
+                    .card__inner
+                      .card__item ?
+                      - ++n
+              
+              .card(data-type="enemy" data-done="true")
+                .card__holder
+                  .card__inner(style="background-image: url('img/e-zed.jpg')")
+                    .card__item ?
+                .card__type(style="background-image: url('img/t-normal.png')")
+                .card__damage 12
+              .card(data-type="item")
+                .card__holder
+                  .card__inner
+                    .card__item(data-tippy-content="Sword: useful for dispersing crowds" style="background-image: url('img/w-sword.png')")
+                      .card__value 8
+              - var n = 3;
+              while n < 9
+                .card
+                  .card__holder
+                    .card__inner
+                      .card__item ?
+                      - ++n
+
+              .card(data-type="enemy" data-done="true")
+                .card__holder
+                  .card__inner(style="background-image: url('img/e-ziggs.jpg')")
+                    .card__item ?
+                .card__type(style="background-image: url('img/t-fire.png')")
+                .card__damage= 8
+              .card(data-type="item" data-done="true")
+                .card__holder
+                  .card__inner
+                    .card__item(data-tippy-content="Dagger: every use decrease his damage by 1" style="background-image: url('img/w-dagger.png')")
+                      .card__value 6
+              - var n = 3;
+              while n < 9
+                .card
+                  .card__holder
+                    .card__inner
+                      .card__item ?
+                      - ++n
+
 
     include includes/_footer.pug

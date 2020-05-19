@@ -1,6 +1,7 @@
 @import "../../node_modules/bootstrap/scss/bootstrap-reboot.scss";
 @import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
 @import "../../node_modules/aos/src/sass/aos";
+@import "../../node_modules/tippy.js/dist/tippy";
 
 // Helpers
 @import "helpers/variables";
@@ -17,6 +18,10 @@
 @import "components/player";
 @import "components/board";
 @import "components/card";
+@import "components/shadow";
+@import "components/console";
+@import "components/button";
+@import "components/tippy-box";
 
 body {
   @include fx(column nowrap, flex-start, stretch);

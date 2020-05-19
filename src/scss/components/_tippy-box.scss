@@ -1,0 +1,18 @@
+.tippy-box[data-theme~="custom"] {
+  background-color: #000;
+  color: $albescent-white;
+  cursor: help;
+
+  &[data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: #000;
+  }
+  &[data-placement^='bottom'] > .tippy-arrow::before {
+    border-bottom-color: #000;
+  }
+  &[data-placement^='left'] > .tippy-arrow::before {
+    border-left-color: #000;
+  }
+  &[data-placement^='right'] > .tippy-arrow::before {
+    border-right-color: #000;
+  }
+}

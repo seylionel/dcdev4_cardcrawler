@@ -1,3 +1,3 @@
-import AOS from 'aos';
+import tippy from 'tippy.js';
 
-AOS.init();
+tippy('[data-tippy-content]', {theme: 'custom'});

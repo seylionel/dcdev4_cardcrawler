@@ -1,0 +1,12 @@
+.button {
+  background: transparent;
+  border: rem(3px) solid $albescent-white;
+  color: $albescent-white;
+  text-transform: uppercase;
+  transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
+
+  &:hover {
+    background: $albescent-white;
+    color: $outer-space;
+  }
+}
