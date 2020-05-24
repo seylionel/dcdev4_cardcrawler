@@ -1,0 +1,8 @@
+[
+  {
+    "type": 0,
+    "name": "Fire",
+    "eDescription": "This ennemy will set you in fire, you'll loose 1 point of life every new turn",
+    "hDescription": "You're in fire! You loose 1 life point every turn"
+  }
+]

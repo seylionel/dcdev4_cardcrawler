@@ -1,0 +1,262 @@
+[
+  {
+    "name": "Ahri",
+    "level": 2,
+    "typeIndex": null
+  },
+  {
+    "name": "Annie",
+    "level": 2,
+    "typeIndex": null
+  },
+  {
+    "name": "Ashe",
+    "level": 3,
+    "typeIndex": null
+  },
+  {
+    "name": "Aurelion Sol",
+    "level": 5,
+    "typeIndex": null
+  },
+  {
+    "name": "Blitzcrank",
+    "level": 2,
+    "typeIndex": null
+  },
+  {
+    "name": "Caitlyn",
+    "level": 1,
+    "typeIndex": null
+  },
+  {
+    "name": "Cho'Gath",
+    "level": 4,
+    "typeIndex": null
+  },
+  {
+    "name": "Darius",
+    "level": 2,
+    "typeIndex": null
+  },
+  {
+    "name": "Ekko",
+    "level": 5,
+    "typeIndex": null
+  },
+  {
+    "name": "Ezreal",
+    "level": 3,
+    "typeIndex": null
+  },
+  {
+    "name": "Fiora",
+    "level": 1,
+    "typeIndex": null
+  },
+  {
+    "name": "Fizz",
+    "level": 4,
+    "typeIndex": null
+  },
+  {
+    "name": "Gangplank",
+    "level": 5,
+    "typeIndex": null
+  },
+  {
+    "name": "Graves",
+    "level": 1,
+    "typeIndex": null
+  },
+  {
+    "name": "Irelia",
+    "level": 4,
+    "typeIndex": null
+  },
+  {
+    "name": "Jarvan IV",
+    "level": 1,
+    "typeIndex": null
+  },
+  {
+    "name": "Jayce",
+    "level": 3,
+    "typeIndex": null
+  },
+  {
+    "name": "Jhin",
+    "level": 4,
+    "typeIndex": null
+  },
+  {
+    "name": "Jinx",
+    "level": 4,
+    "typeIndex": null
+  },
+  {
+    "name": "Kai'Sa",
+    "level": 2,
+    "typeIndex": null
+  },
+  {
+    "name": "Karma",
+    "level": 3,
+    "typeIndex": null
+  },
+  {
+    "name": "Kassadin",
+    "level": 3,
+    "typeIndex": null
+  },
+  {
+    "name": "Kayle",
+    "level": 4,
+    "typeIndex": null
+  },
+  {
+    "name": "Kha'Zix",
+    "level": 1,
+    "typeIndex": null
+  },
+  {
+    "name": "Leona",
+    "level": 1,
+    "typeIndex": null
+  },
+  {
+    "name": "Lucian",
+    "level": 2,
+    "typeIndex": null
+  },
+  {
+    "name": "Lulu",
+    "level": 5,
+    "typeIndex": null
+  },
+  {
+    "name": "Lux",
+    "level": 3,
+    "typeIndex": null
+  },
+  {
+    "name": "Malphite",
+    "level": 1,
+    "typeIndex": null
+  },
+  {
+    "name": "Master Yi",
+    "level": 3,
+    "typeIndex": null
+  },
+  {
+    "name": "Miss Fortune",
+    "level": 5,
+    "typeIndex": null
+  },
+  {
+    "name": "Mordekaiser",
+    "level": 2,
+    "typeIndex": null
+  },
+  {
+    "name": "Neeko",
+    "level": 3,
+    "typeIndex": null
+  },
+  {
+    "name": "Poppy",
+    "level": 1,
+    "typeIndex": null
+  },
+  {
+    "name": "Rakan",
+    "level": 2,
+    "typeIndex": null
+  },
+  {
+    "name": "Rumble",
+    "level": 3,
+    "typeIndex": null
+  },
+  {
+    "name": "Shaco",
+    "level": 3,
+    "typeIndex": null
+  },
+  {
+    "name": "Shen",
+    "level": 2,
+    "typeIndex": null
+  },
+  {
+    "name": "Sona",
+    "level": 2,
+    "typeIndex": null
+  },
+  {
+    "name": "Soraka",
+    "level": 4,
+    "typeIndex": null
+  },
+  {
+    "name": "Syndra",
+    "level": 3,
+    "typeIndex": null
+  },
+  {
+    "name": "Thresh",
+    "level": 5,
+    "typeIndex": null
+  },
+  {
+    "name": "Twisted Fate",
+    "level": 1,
+    "typeIndex": null
+  },
+  {
+    "name": "Vel'Koz",
+    "level": 4,
+    "typeIndex": null
+  },
+  {
+    "name": "Vi",
+    "level": 3,
+    "typeIndex": null
+  },
+  {
+    "name": "Wukong",
+    "level": 4,
+    "typeIndex": null
+  },
+  {
+    "name": "Xayah",
+    "level": 1,
+    "typeIndex": null
+  },
+  {
+    "name": "Xerath",
+    "level": 5,
+    "typeIndex": null
+  },
+  {
+    "name": "Xin Zhao",
+    "level": 2,
+    "typeIndex": null
+  },
+  {
+    "name": "Yasuo",
+    "level": 2,
+    "typeIndex": null
+  },
+  {
+    "name": "Ziggs",
+    "level": 1,
+    "typeIndex": null
+  },
+  {
+    "name": "Zoe",
+    "level": 1,
+    "typeIndex": null
+  }
+]

@@ -1,0 +1,102 @@
+doctype html
+html(lang="en")
+  include includes/_head.pug
+  body
+    include includes/_header.pug
+
+    main.main
+      .container
+        .row.align-items-center
+          .col-12.col-sm-3
+            .hero
+              .hero__picture
+                img(src="img/h-zoe.jpg", alt="Zoe")
+                .hero__afflictions
+                  .hero__affliction(data-tippy-content="You're in fire!! You loose 1 life point every turn" style="background-image: url('img/a-fire.png')")
+              h2.hero__name Zoe
+              .hero__life
+                .hero__bar
+                .hero__bar.hero__bar--current
+                span.hero__life-current 100
+                |/
+                span.hero__life-max 100
+              .hero__weapon(data-tippy-content="Dagger: every use decrease his damage by 1")
+                .shadow.shadow--inner
+                  img(src="img/w-dagger.png", alt="Dagger")
+                .hero__damage 6
+
+          .col-12.col-sm-9
+            .board
+              .card(data-type="enemy")
+                .card__holder
+                  .card__inner(style="background-image: url('img/e-yasuo.jpg')")
+                    .card__hidden ?
+                .card__type(data-tippy-content="Normal enemy, nothing to worry about..." style="background-image: url('img/a-normal.png')")
+                .card__damage 9
+              - var n = 2;
+              while n < 9
+                .card
+                  .card__holder
+                    .card__inner
+                      .card__item ?
+                      - ++n
+              
+              .card(data-type="item")
+                .card__holder
+                  .card__inner
+                    .card__item(data-tippy-content="Remove all debuffs and heal you for 5 life points" style="background-image: url('img/i-life.png')")
+                      .card__value +5
+              - var n = 2;
+              while n < 9
+                .card
+                  .card__holder
+                    .card__inner
+                      .card__item ?
+                      - ++n
+              
+              .card(data-type="enemy" data-done="true")
+                .card__holder
+                  .card__inner(style="background-image: url('img/e-ekko.jpg')")
+                    .card__item ?
+                .card__type(data-tippy-content="Normal enemy, nothing to worry about..." style="background-image: url('img/a-normal.png')")
+                .card__damage 12
+              .card(data-type="item")
+                .card__holder
+                  .card__inner
+                    .card__item(data-tippy-content="Sword: useful for dispersing crowds" style="background-image: url('img/w-sword.png')")
+                      .card__value 8
+              - var n = 3;
+              while n < 9
+                .card
+                  .card__holder
+                    .card__inner
+                      .card__item ?
+                      - ++n
+
+              .card(data-type="enemy" data-done="true")
+                .card__holder
+                  .card__inner(style="background-image: url('img/e-ziggs.jpg')")
+                    .card__item ?
+                .card__type(style="background-image: url('img/a-fire.png')")
+                .card__damage= 8
+              .card(data-type="item" data-done="true")
+                .card__holder
+                  .card__inner
+                    .card__item(data-tippy-content="Dagger: every use decrease his damage by 1" style="background-image: url('img/w-dagger.png')")
+                      .card__value 6
+              .card(data-type="enemy")
+                .card__holder
+                  .card__inner(style="background-image: url('img/e-thresh.jpg')")
+                    .card__item ?
+                .card__type(data-tippy-content="Normal enemy, nothing to worry about..." style="background-image: url('img/a-normal.png')")
+                .card__damage= 3
+              - var n = 4;
+              while n < 9
+                .card
+                  .card__holder
+                    .card__inner
+                      .card__item ?
+                      - ++n
+
+
+    include includes/_footer.pug

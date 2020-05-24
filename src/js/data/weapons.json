@@ -1,0 +1,12 @@
+[
+  {
+    "type": 0,
+    "name": "Sword",
+    "description": "Useful for dispersing crowds"
+  },
+  {
+    "type": 1,
+    "name": "Dagger",
+    "description": "every use decrease his damage by 1"
+  }
+]

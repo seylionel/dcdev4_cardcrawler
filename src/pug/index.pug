@@ -8,98 +8,18 @@ html(lang="en")
       .container
         .row.align-items-center
           .col-12.col-sm-3
-            .player
-              .player__picture
-                img(src="img/c-zoe.jpg", alt="Zoe")
-                .player__debuffs
-                  .player__debuff(data-tippy-content="You're in fire!! You loose 1 life point every turn" style="background-image: url('img/t-fire.png')")
-              h2.player__name Zoe
-              .player__life
-                .player__bar
-                .player__bar.player__bar--current
-                span.player__life-current 80
-                |/
-                span.player__life-max 100
-              .player__item(data-tippy-content="Dagger: every use decrease his damage by 1")
-                .shadow.shadow--inner
-                  img(src="img/w-dagger.png", alt="Dagger")
-                .player__damage 6
-                  
-            .console.shadow.shadow--inner
-              h2 Debugbar
+            <!-- BEGIN PLAYER -->
+            div(data-hero)
+            <!-- END PLAYER -->
+
+            .console.shadow.shadow--inner(data-debug)
+              h2.m-b-16 Debugbar
+              a.button(href="demo.html" target="_blank" data-tippy-content="Check final HTML elements") Demo HTML
 
           .col-12.col-sm-9
-            .board
-              .card(data-type="enemy")
-                .card__holder
-                  .card__inner(style="background-image: url('img/e-yasuo.jpg')")
-                    .card__hidden ?
-                .card__type(data-tippy-content="Normal enemy, nothing to worry about..." style="background-image: url('img/t-normal.png')")
-                .card__damage 9
-              - var n = 2;
-              while n < 9
-                .card
-                  .card__holder
-                    .card__inner
-                      .card__item ?
-                      - ++n
-              
-              .card(data-type="item")
-                .card__holder
-                  .card__inner
-                    .card__item(data-tippy-content="Remove all debuffs and heal you for 5 life points" style="background-image: url('img/i-life.png')")
-                      .card__value +5
-              - var n = 2;
-              while n < 9
-                .card
-                  .card__holder
-                    .card__inner
-                      .card__item ?
-                      - ++n
-              
-              .card(data-type="enemy" data-done="true")
-                .card__holder
-                  .card__inner(style="background-image: url('img/e-zed.jpg')")
-                    .card__item ?
-                .card__type(data-tippy-content="Normal enemy, nothing to worry about..." style="background-image: url('img/t-normal.png')")
-                .card__damage 12
-              .card(data-type="item")
-                .card__holder
-                  .card__inner
-                    .card__item(data-tippy-content="Sword: useful for dispersing crowds" style="background-image: url('img/w-sword.png')")
-                      .card__value 8
-              - var n = 3;
-              while n < 9
-                .card
-                  .card__holder
-                    .card__inner
-                      .card__item ?
-                      - ++n
-
-              .card(data-type="enemy" data-done="true")
-                .card__holder
-                  .card__inner(style="background-image: url('img/e-ziggs.jpg')")
-                    .card__item ?
-                .card__type(style="background-image: url('img/t-fire.png')")
-                .card__damage= 8
-              .card(data-type="item" data-done="true")
-                .card__holder
-                  .card__inner
-                    .card__item(data-tippy-content="Dagger: every use decrease his damage by 1" style="background-image: url('img/w-dagger.png')")
-                      .card__value 6
-              .card(data-type="enemy")
-                .card__holder
-                  .card__inner(style="background-image: url('img/e-thresh.jpg')")
-                    .card__item ?
-                .card__type(data-tippy-content="Normal enemy, nothing to worry about..." style="background-image: url('img/t-normal.png')")
-                .card__damage= 3
-              - var n = 4;
-              while n < 9
-                .card
-                  .card__holder
-                    .card__inner
-                      .card__item ?
-                      - ++n
+            <!-- BEGIN BOARD -->
+            div(data-board)
+            <!-- END BOARD -->
 
 
     include includes/_footer.pug
