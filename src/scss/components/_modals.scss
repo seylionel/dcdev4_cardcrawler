@@ -1,0 +1,41 @@
+.modal {
+  @include fx();
+  @include position(0,0,0,0);
+  background: transparent;
+  text-align: center;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease-in-out, background 0.5s ease-in-out;
+  
+  &[data-modal="true"] {
+    background: rgba(0,0,0,0.75);
+    transform: translateY(0);
+
+    .modal__content {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__content {
+    background: $albescent-white;
+    border-radius: rem(16px);
+    color: #000;
+    overflow: hidden;
+    opacity: 0;
+    max-width: rem(640px);
+    padding: 0 0 rem(16px);
+    transform: translateY(50%);
+    transition: transform 0.5s ease-in-out 0.25s, opacity 0.25s ease-in-out 0.5s;
+  }
+  
+  &__title {
+    background: $sushi;
+    color: $albescent-white;
+    font-size: rem(24px);
+    padding: rem(16px);
+  }
+
+  &__description {
+    padding: rem(32px);
+  }
+}

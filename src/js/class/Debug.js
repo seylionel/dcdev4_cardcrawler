@@ -30,7 +30,7 @@ export default class {
   init() {
     // On ajoute un bouton au format HTML à notre élément HTML
     // et on place notre 'New hero' entre les balises
-    this.el.innerHTML += `<button class="button">${this.text}</button>`;
+    this.el.innerHTML += `<button class="button button--debug">${this.text}</button>`;
 
     // Il faut sélectionner le bouton nouvellement créé en JS, sinon on ne peut pas intéragir avec...
     // Le sélecteur CSS : '[data-debug] > *:last-child' va automatiquement sélectionner le dernier élément (cf : http://cssdiner.com level 17)
