@@ -1,12 +1,17 @@
+// import tippy from 'tippy.js';
+// tippy('[data-tippy-content]', {theme: 'custom'});
+
 // On importe la Class Hero
 import Hero from './class/Hero';
 // On importe la Class Debug
 import Debug from './class/Debug';
+// On importe la Class Modal
+import Modal from './class/Modal';
 
 // On crée une nouvelle instance de la Class Hero.
 // puis on lance la méthode init() qui se trouve dans class/Hero.js
 let hero = new Hero(); 
-hero.init();
+
 
 // On crée une nouvelle instance de la Class Debug avec 2 paramètres.
 // 1/ le texte à afficher dans le bouton
@@ -30,3 +35,10 @@ function changeHero() {
   hero.init();
 }
 
+// On crée une nouvelle instance de la Class Modal avec 2 paramètres.
+// 1/ le texte à afficher dans le titre
+// 2/ le texte à afficher dans la description
+// -> Fichier: ./class/Modal.js
+// -> ligne 2: export default class {
+let modal = new Modal('Welcome!', 'Great game, tell your friends to come!');
+modal.init();
