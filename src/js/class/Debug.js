@@ -1,4 +1,4 @@
-// On créé un Class
+// On créé une Class
 export default class {
   // Quelques propriétés privées
   #text;
@@ -12,6 +12,8 @@ export default class {
     this.el = document.querySelector('[data-debug]');
     this.#text = text; // Ici 'New hero'
     this.#callback = callback; // Ici changeHero;
+
+    this.init();
   }
 
   // renvoi 'New Hero'
@@ -41,7 +43,7 @@ export default class {
     // Quand l'utilisateur va cliquer sur le bouton ça va lancer la fonction
     // this.callback qui contient kwaaaa ?
     // -> Fichier: celui-ci même
-    // -> ligne 14 : this.#callback = callback; // Ici changeHero;
+    // -> ligne 14 : this.#callback = callback; // Ici changeHero
     this.elButton.addEventListener('click', this.callback);
   }
 }

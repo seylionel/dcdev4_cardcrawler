@@ -1,4 +1,6 @@
 import characters from '../data/characters.json';
+import Debug from './Debug';
+import Modal from './Modal';
 
 export default class {
   #maxLife;
@@ -11,6 +13,8 @@ export default class {
     this.#maxLife = null;
     this.#curLife = null;
     this.weapon = null;
+
+    this.init();
   }
 
   get characterName() {
@@ -42,7 +46,7 @@ export default class {
 
     this.el.innerHTML = `
       <div class="hero">
-        <div class="hero__picture">
+        <div class="hero__picture" data-hero-level="${this.characterLevel}">
           <img src="img/h-${this.imagePath}.jpg" alt="${this.characterName}">
           <div class="hero__afflictions" data-hero-afflictions></div>
         </div>
@@ -68,6 +72,30 @@ export default class {
 
     this.renderText(this.elMaxLife, this.maxLife);
     this.renderText(this.elCurLife, this.curLife);
+
+    new Debug('life', () => (this.changeLife(-20)));
+  }
+
+  changeLife(points) {
+    console.log('couocu');
+    // Ajout des points à la vie
+    this.curLife += points;
+
+    // Si maintenant la vie actuelle dépasse la vie max alors la vie actuelle sera remise à la hauteur de la vie max
+    if (this.curLife > this.maxLife) {
+      this.curLife = this.maxLife;
+    }
+    else if(this.curLife <= 0) {
+      this.curLife = 0;
+      this.death();
+    }
+
+    // Mise à jour de l'interface utilisateur
+    this.renderText(this.elCurLife, this.curLife);
+  }
+
+  death() {
+    new Modal('You\'re dead!', 'Please refresh the browser window to reset the game!');
   }
 
   //Method render
