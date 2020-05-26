@@ -1,71 +1,32 @@
-// import tippy from 'tippy.js';
-// tippy('[data-tippy-content]', {theme: 'custom'});
+// On importe la Class Hero
 import Hero from './class/Hero';
+// On importe la Class Debug
 import Debug from './class/Debug';
 
+// On crée une nouvelle instance de la Class Hero.
+// puis on lance la méthode init() qui se trouve dans class/Hero.js
 let hero = new Hero(); 
 hero.init();
 
+// On crée une nouvelle instance de la Class Debug avec 2 paramètres.
+// 1/ le texte à afficher dans le bouton
+// 2/ la fonction à executer lorsque l'utilisateur clique sur le bouton
+// -> Fichier: ./class/Debug.js
+// -> ligne 2: export default class {
 let btnHero = new Debug('New hero', changeHero);
+// puis on lance la méthode init() qui se trouve dans class/Debug.js
+// -> Fichier: ./class/Debug.js
+// -> ligne 19: init() {
 btnHero.init();
 
+// Cette fonction est envoyée au bouton ici :
+// ligne 18: let btnHero = new Debug('New hero', changeHero);
 function changeHero() {
+  // On supprime la référence du hero actuel = libération de la mémoire
   hero = null;
+  // On crée une nouvelle instance de la Class Hero.
+  // puis on lance la méthode init() qui se trouve dans class/Hero.js
   hero = new Hero();
   hero.init();
 }
 
-/*import characters from './data/characters.json';
-
-/*var nomVariable1 = 'Texte';
-var nomVariable2 = 1;
-var nomVariable3 = false;
-
-var nomVariable4 = [1, 2];
-
-var nomVariable5 = {
-  name: 'Zoe',
-  lifeMax: 100,
-  weapon: true,
-  kill: function () {
-    this.lifeMax = 0;
-  }
-};
-
-
-console.log(nomVariable5);
-
-// Object
-nomVariable5;
-
-// Objects property
-nomVariable5.name = 'Lionel';
-nomVariable5.firstName = 'Seymour';
-nomVariable5.attack = 6;
-
-// Objects method
-nomVariable5.kill();
-console.log('la :', nomVariable5);
-
-console.log(nomVariable5.firstName+" "+ nomVariable5.name+' '+"n'a plus que "+(nomVariable5.lifeMax+ 5 ))
-
-
-// Selectors
-const elHero = document.querySelector('[data-hero]');
-const elDebug = document.querySelector('[data-debug]');
-
-// Add HTML button
-elDebug.innerHTML += '<button class="button" data-debug-newHero>New hero</button>';
-
-// Create a selector for the newly button
-const elDebugNewHero = document.querySelector('[data-debug-newHero]');
-// Add listener on the click event on the button
-elDebugNewHero.addEventListener('click', newHero);
-
-// Callback function when the user press the button
-function newHero() {
-  let randomHero =  Math.floor(Math.random() * characters.length);
-  elHero.innerText = characters[randomHero].name;
-}
-
-//newHero();*/

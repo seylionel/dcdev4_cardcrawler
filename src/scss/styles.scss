@@ -22,6 +22,7 @@
 @import "components/console";
 @import "components/button";
 @import "components/tippy-box";
+@import "components/modals";
 
 body {
   @include fx(column nowrap, flex-start, stretch);
