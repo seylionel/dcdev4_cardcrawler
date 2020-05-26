@@ -73,15 +73,12 @@ export default class {
     this.renderText(this.elMaxLife, this.maxLife);
     this.renderText(this.elCurLife, this.curLife);
 
-    new Debug('-20 life', this.changeLife(-20));
-    // new Debug('+20 life', this.changeLife, (20));
+    new Debug('life', () => (this.changeLife(-17)));
   }
 
   changeLife(points) {
     // Ajout des points à la vie
     this.curLife += points;
-
-    console.log(this, points);
 
     // Si maintenant la vie actuelle dépasse la vie max alors la vie actuelle sera remise à la hauteur de la vie max
     if (this.curLife > this.maxLife) {
@@ -94,6 +91,7 @@ export default class {
 
     // Mise à jour de l'interface utilisateur
     this.renderText(this.elCurLife, this.curLife);
+    this.elLifeBar.style.minWidth = (this.curLife / this.maxLife * 100) + '%';
   }
 
   death() {
