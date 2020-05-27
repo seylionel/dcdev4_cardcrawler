@@ -1,6 +1,6 @@
 .modal {
   @include fx();
-  @include position(0,0,0,0);
+  @include position(0,0,0,0, fixed);
   background: transparent;
   text-align: center;
   transform: translateY(-100%);

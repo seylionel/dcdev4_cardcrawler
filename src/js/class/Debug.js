@@ -1,27 +1,34 @@
 // On créé une Class
-export default class {
-  // Quelques propriétés privées
+export default class Debug {
+  // Privatisation de propriétés el, text et callback
+  #el;
   #text;
   #callback;
 
-  // Dans le constructeur on récupère le text du bouton ainsi que la fonction à appeler
-  // -> Fichier: ../script.js
-  // -> ligne 18: let btnHero = new Debug('New hero', changeHero); 
+  // Récupération de 2 paramètres dans le contructeur : text, callback
+  // Exemple d'instanciation : new Debug('text', methode);
   constructor(text, callback) {
-    // On stocke notre élément HTML qui contient tous nos boutons
-    this.el = document.querySelector('[data-debug]');
-    this.#text = text; // Ici 'New hero'
+    // Affectation d'un élément HTML à la propriété privée #el
+    this.#el = document.querySelector('[data-debug]');
+    // Affectation du text à la propriété privée #text
+    this.#text = text;
+    // Affectation de la methode à la propriété privée #callback
     this.#callback = callback; // Ici changeHero;
 
     this.init();
   }
 
-  // renvoi 'New Hero'
+  // Getter de la propriété privée el
+  get el() {
+    return this.#el;
+  }
+
+  // Getter de la propriété privée text
   get text() {
     return this.#text;
   }
 
-  // renvoi changeHero
+  // Getter de la propriété privée callback
   get callback() {
     return this.#callback;
   }

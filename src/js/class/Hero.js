@@ -15,7 +15,6 @@ export default class extends Character {
     this.weapon = null;
 
     this.init();
-    this.crie();
   }
 
   // this.maxLife = number
