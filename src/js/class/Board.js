@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "./Ennemy";
 
 export default class {
   #nbCards;
