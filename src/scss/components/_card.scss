@@ -6,6 +6,22 @@
   position: relative;
   transition: transform .25s ease-in-out;
 
+  &[data-hero-level] {
+    border-color: $lvl-1;
+  }
+  &[data-hero-level="2"] {
+    border-color: $lvl-2;
+  }
+  &[data-hero-level="3"] {
+    border-color: $lvl-3;
+  }
+  &[data-hero-level="4"] {
+    border-color: $lvl-4;
+  }
+  &[data-hero-level="5"] {
+    border-color: $lvl-5;
+  }
+
   &[data-type] {
     cursor: pointer;
 

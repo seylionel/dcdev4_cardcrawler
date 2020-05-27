@@ -1,33 +1,20 @@
-import characters from '../data/characters.json';
+import Character from './Character';
 import Debug from './Debug';
 import Modal from './Modal';
 
-export default class {
+export default class extends Character {
   #maxLife;
   #curLife;
 
   constructor(el) {
+    super();
     this.el = el || document.querySelector('[data-hero]');
-    this.character = characters[Math.floor(Math.random() * characters.length)];
     this.afflictions = null;
     this.#maxLife = null;
     this.#curLife = null;
     this.weapon = null;
 
     this.init();
-  }
-
-  get characterName() {
-    return this.character.name;
-  }
-
-  get characterLevel() {
-    return this.character.level;
-  }
-
-  //Method image path
-  get imagePath() {
-    return this.characterName.toLowerCase().replace(/[\s\']/g, "");
   }
 
   // this.maxLife = number
