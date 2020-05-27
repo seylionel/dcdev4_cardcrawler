@@ -23,12 +23,10 @@ export default class {
   }
 
   init() {
-    this.el.innerHTML = `
-      <div class="modal__content">
-        <div class="modal__title">${this.title}</div>
-        <div class="modal__description">${this.description}</div>
-        <button class="button button--modal" data-modal-close>Ok!</button>
-      </div>
+    this.el.querySelector('.modal__content').innerHTML = `
+      <div class="modal__title">${this.title}</div>
+      <div class="modal__description">${this.description}</div>
+      <button class="button button--modal" data-modal-close>Ok!</button>
     `;
 
     document.querySelector('[data-modal-close]').addEventListener('click', () => {this.el.setAttribute('data-modal', 'false')});

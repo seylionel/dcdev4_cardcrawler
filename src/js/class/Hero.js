@@ -73,7 +73,8 @@ export default class {
     this.renderText(this.elMaxLife, this.maxLife);
     this.renderText(this.elCurLife, this.curLife);
 
-    new Debug('life', () => (this.changeLife(-17)));
+    new Debug('-20', () => (this.changeLife(-20)));
+    new Debug('+20', () => (this.changeLife(20)));
   }
 
   changeLife(points) {

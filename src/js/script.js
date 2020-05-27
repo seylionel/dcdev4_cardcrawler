@@ -3,7 +3,7 @@
 
 // On importe la Class Hero
 import Hero from './class/Hero';
-// On importe la Class Hero
+// On importe la Class Board
 import Board from './class/Board';
 // On importe la Class Debug
 import Debug from './class/Debug';
