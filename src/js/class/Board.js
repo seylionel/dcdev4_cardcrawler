@@ -1,3 +1,5 @@
+import Card from "./Card";
+
 export default class {
   #nbCards;
 
@@ -13,20 +15,30 @@ export default class {
   }
 
   init() {
-    for (let card = 0; card < this.nbCards; ++card) {
-      let text = '?'
-      // if card modulo 8 = 0 alors je met carte à la place du point d'interogation
-      // si oui alors text = 'Carte'
-
-      this.el.innerHTML += `
-        <div class="card">
-          <div class="card__holder">
-            <div class="card__inner">
-              <div class="card__item">${text}</div>
+    for (let index = 0; index < this.nbCards; ++index) {
+      console.log('nimportekoi');
+      // Le ternaire
+      // let text = (card % 8 === 0) ? 'carte' : '?';
+      let cardHTML = '';
+      
+      if (index % 8 === 0) {
+        let card = new Card();
+        card.init();
+        cardHTML = card.html;
+      }
+      else {
+        cardHTML = `
+          <div class="card">
+            <div class="card__holder">
+              <div class="card__inner">
+                <div class="card__item">?</div>
+              </div>
             </div>
           </div>
-        </div>
-      `;
+        `;
+      }
+
+      this.el.insertAdjacentHTML('beforeend', cardHTML);
     }
   }
 }
