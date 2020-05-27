@@ -8,6 +8,10 @@
 
   &[data-hero-level] {
     border-color: $lvl-1;
+
+    .card__holder {
+      border-color: $darkslategray;
+    }
   }
   &[data-hero-level="2"] {
     border-color: $lvl-2;
