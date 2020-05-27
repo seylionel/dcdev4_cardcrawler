@@ -66,12 +66,13 @@
   &__bar {
     @include position(0,0,0,0);
     background: $pomegranate;
+    transition: min-width 0.25s ease-in-out;
     z-index: -1;
     
     &--current {
       background: $sushi;
       right: auto;
-      width: 100%;
+      min-width: 100%;
     }
   }
 

@@ -73,11 +73,11 @@ export default class {
     this.renderText(this.elMaxLife, this.maxLife);
     this.renderText(this.elCurLife, this.curLife);
 
-    new Debug('life', () => (this.changeLife(-20)));
+    new Debug('-20', () => (this.changeLife(-20)));
+    new Debug('+20', () => (this.changeLife(20)));
   }
 
   changeLife(points) {
-    console.log('couocu');
     // Ajout des points à la vie
     this.curLife += points;
 
@@ -92,6 +92,7 @@ export default class {
 
     // Mise à jour de l'interface utilisateur
     this.renderText(this.elCurLife, this.curLife);
+    this.elLifeBar.style.minWidth = (this.curLife / this.maxLife * 100) + '%';
   }
 
   death() {
