@@ -16,19 +16,19 @@ export default class Item {
   }
 
   get itemType() {
-    return this.#item.type;
+    return this.item.type;
   }
 
   get itemHeal() {
-    return this.#item.heal;
+    return this.item.heal;
   }
 
   get itemName() {
-    return this.#item.name;
+    return this.item.name;
   }
 
   get itemDescription() {
-    return this.#item.description;
+    return this.item.description;
   }
 
   get imagePath() {
@@ -47,9 +47,5 @@ export default class Item {
         </div>
       </div>
     `;
-  }
-
-  init() {
-    console.log('TODO init de l\'item');
   }
 }

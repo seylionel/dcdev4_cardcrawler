@@ -3,27 +3,40 @@ import Debug from './Debug';
 import Modal from './Modal';
 
 export default class extends Character {
+  #el;
   #maxLife;
   #curLife;
+  #attack;
 
   constructor(el) {
     super();
-    this.el = el || document.querySelector('[data-hero]');
-    this.afflictions = null;
+    this.#el = el || document.querySelector('[data-hero]');
     this.#maxLife = null;
     this.#curLife = null;
-    this.weapon = null;
+    this.#attack = 0;
 
     this.init();
+  }
+
+  get el() {
+    return this.#el;
+  }
+
+  get maxLife() {
+    return this.#maxLife;
+  }
+
+  get attack() {
+    return this.#attack;
+  }
+
+  set attack(attack) {
+    this.#attack = attack;
   }
 
   // this.maxLife = number
   set maxLife(life) {
     this.#maxLife = life;
-  }
-
-  get maxLife() {
-    return this.#maxLife;
   }
 
   // Method init
@@ -48,7 +61,7 @@ export default class extends Character {
           <span class="hero__life-max" data-hero-maxlife></span>
         </div>
 
-        <div class="hero__weapon"></div>
+        <div class="hero__weapon" data-hero-weapon></div>
       </div>
     `;
 
@@ -56,6 +69,7 @@ export default class extends Character {
     this.elLifeBar = document.querySelector('[data-hero-lifebar]');
     this.elCurLife = document.querySelector('[data-hero-curlife]');
     this.elMaxLife = document.querySelector('[data-hero-maxlife]');
+    this.elWeapon = document.querySelector('[data-hero-weapon]');
 
     this.renderText(this.elMaxLife, this.maxLife);
     this.renderText(this.elCurLife, this.curLife);
@@ -80,6 +94,15 @@ export default class extends Character {
     // Mise à jour de l'interface utilisateur
     this.renderText(this.elCurLife, this.curLife);
     this.elLifeBar.style.minWidth = (this.curLife / this.maxLife * 100) + '%';
+  }
+
+  changeWeapon(weapon) {
+    this.elWeapon.innerHTML = ` 
+      <div class="shadow shadow--inner"><img src="img/w-${weapon.imagePath}.png" alt="${weapon.weaponName}"></div>
+      <div class="hero__damage">${weapon.attack}</div>
+    `;
+
+    this.attack = weapon.attack;
   }
 
   death() {
