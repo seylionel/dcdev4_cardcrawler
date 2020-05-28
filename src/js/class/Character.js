@@ -35,7 +35,7 @@ export default class Character {
   }
 
   // Transformation de la propriété characterName en path d'image
-  // On passe tout en minuscule (désolé Amélie) et supprime les espaces et les simples quotes
+  // On passe tout en minuscule  et supprime les espaces et les simples quotes
   // avant : Vel'koz
   // après : velkoz
   get imagePath() {
