@@ -1,10 +1,15 @@
+import Item from "./Item";
+import Weapon from "./Weapon";
+
 export default class Turn {
   #hero;
   #card;
+  #callback;
 
-  constructor(hero, card) {
+  constructor(hero, card, callback) {
     this.#hero = hero;
     this.#card = card;
+    this.#callback = callback;
 
     this.init();
   }
@@ -13,11 +18,29 @@ export default class Turn {
     return this.#hero;
   }
 
-  get card() {  
+  get card() {
     return this.#card;
   }
 
+  get callback() {
+    return this.#callback;
+  }
+
   init() {
-    this.hero.changeLife(this.card.itemHeal);
+    switch (this.card.constructor) {
+      case Item:
+        this.hero.changeLife(this.card.itemHeal);
+        break;
+      case Weapon:
+        this.hero.changeWeapon(this.card);
+        break;
+      default:
+        let potentialDamage = (this.card.attack * -1) + this.hero.attack,
+            realDamage = (potentialDamage < 0) ? potentialDamage : 0;
+        
+        this.hero.changeLife(realDamage);
+    }
+
+    this.callback();
   }
 }

@@ -41,4 +41,6 @@ export default class Character {
   get imagePath() {
     return this.characterName.toLowerCase().replace(/[\s\']/g, "");
   }
+
+  
 }
