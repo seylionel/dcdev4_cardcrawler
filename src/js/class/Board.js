@@ -1,7 +1,9 @@
 import Hero from "./Hero";
 import Enemy from "./Enemy";
 import Item from "./Item";
+import Weapon from "./Weapon";
 import Turn from "./Turn";
+import Modal from "./Modal";
 
 export default class {
   #el;
@@ -64,11 +66,8 @@ export default class {
       cardCurrent = new Item();
     }
     else {
-      // TODO new Weapon();
-      cardCurrent = new Item();
+      cardCurrent = new Weapon();
     }
-
-    cardCurrent.init();
 
     // On crée un nouvel élément HTML
     cards[cardIndex].outerHTML = cardCurrent.html;
@@ -78,11 +77,28 @@ export default class {
     // Au clique de l'utilisateur sur la carte on lance un nouveau tours de jeu
     // @hero : on envoi le héro dans le tours de jeu
     // @cardInstance : la carte que doit affronter le héro
-    // @callback : un function locale qui sera rappelée à la fin du tours
-    elCardCurrent.addEventListener('click', () => {new Turn(this.hero, cardCurrent, () => { this.disableCard(cardIndex)})});
+    // @callback : une fonction locale qui sera rappelée à la fin du tours
+    elCardCurrent.addEventListener('click', () => { new Turn(this.hero, cardCurrent, () => { this.disableCard(cardIndex) })});
   }
 
   disableCard(index) {
+    let cards = document.querySelectorAll('.card');
+    
+    cards[index].setAttribute('data-done', 'true');
 
+    let cardsDone = document.querySelectorAll('.card[data-done="true"]');
+
+    // TODO
+    // utiliser la méthode locale createCard avec l'index de la carte suivant
+    // sauf si c'est la dernière carte
+    // et si la carte suivant ne possède pas un attribut data-type
+    if (cardsDone.length === this.nbCards) {
+      new Modal('Victory!', 'You\'ve won the game ! Please refresh the browser window to reset the game!');
+    }
+    else {
+      if (cards[index + 1].getAttribute('data-type') === null) {
+        this.createCard(index + 1)
+      };
+    }
   }
 }
