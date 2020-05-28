@@ -1,4 +1,5 @@
 import Enemy from "./Enemy";
+import Item from "./Item";
 
 export default class {
   #nbCards;
@@ -27,15 +28,37 @@ export default class {
           </div>
         </div>
       `;
-      
-      if (index % 8 === 0) {
-        let enemy = new Enemy();
-        enemy.init();
-
-        cardHTML = enemy.html;
-      }
 
       this.el.insertAdjacentHTML('beforeend', cardHTML);
     }
+
+    this.createCard(0);
+    this.createCard(8);
+    this.createCard(16);
+    this.createCard(24);
+  }
+
+  createCard(cardIndex) {
+    let cardHTML,
+        cardCurrent,
+        random = Math.random(),
+        cards = document.querySelectorAll('.card');
+        
+    if (random < 6 / 10) {
+      cardCurrent = new Enemy();
+    }
+    else if (random < 8/10) {
+      cardCurrent = new Item();
+    }
+    else {
+      // TODO new Weapon();
+      cardCurrent = new Item();
+    }
+
+    cardCurrent.init();
+
+    cards[cardIndex].outerHTML = cardCurrent.html;
+    let elCardCurrent = document.querySelectorAll('.card')[cardIndex];
+    elCardCurrent.addEventListener('click', () => {new Turn(this.hero, cardCurrent)});
   }
 }

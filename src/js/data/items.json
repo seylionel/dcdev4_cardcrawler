@@ -1,7 +1,20 @@
 [
   {
     "type": 0,
+    "heal": 5,
     "name": "Angel",
-    "description": "Remove all debuffs and heal you for % life points"
+    "description": "Heals you for 5 life points"
+  },
+  {
+    "type": 0,
+    "heal": 3,
+    "name": "Angel",
+    "description": "Heals you for 3 life points"
+  },
+  {
+    "type": 0,
+    "heal": 4,
+    "name": "Angel",
+    "description": "Heals you for 4 life points"
   }
 ]
