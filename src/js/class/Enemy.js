@@ -32,6 +32,7 @@ export default class extends Character {
   }
 
   init() {
-    this.attack = 3 * (this.characterLevel - 1) + Math.ceil(Math.random() * 3);
+    //this.attack = 3 * (this.characterLevel - 1) + Math.ceil(Math.random() * 3);
+    this.attack = 2 * this.characterLevel + Math.ceil(Math.random() * 5);
   }
 }
