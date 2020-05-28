@@ -52,8 +52,4 @@ export default class Item {
   init() {
     console.log('TODO init de l\'item');
   }
-
-  done() {
-    
-  }
 }

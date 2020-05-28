@@ -1,14 +1,27 @@
+import Hero from "./Hero";
 import Enemy from "./Enemy";
 import Item from "./Item";
+import Turn from "./Turn";
 
 export default class {
+  #el;
+  #hero;
   #nbCards;
 
   constructor(nbCards) {
-    this.el = document.querySelector('[data-board]');
+    this.#el = document.querySelector('[data-board]');
+    this.#hero = new Hero();
     this.#nbCards = nbCards || 32;
 
     this.init();
+  }
+
+  get el() {
+    return this.#el;
+  }
+
+  get hero() {
+    return this.#hero;
   }
 
   get nbCards() {
@@ -57,8 +70,19 @@ export default class {
 
     cardCurrent.init();
 
+    // On crée un nouvel élément HTML
     cards[cardIndex].outerHTML = cardCurrent.html;
+    // On stocke l'élément HTML nouvellement crée
     let elCardCurrent = document.querySelectorAll('.card')[cardIndex];
-    elCardCurrent.addEventListener('click', () => {new Turn(this.hero, cardCurrent)});
+    // On ajoute un écouteur sur l'élément
+    // Au clique de l'utilisateur sur la carte on lance un nouveau tours de jeu
+    // @hero : on envoi le héro dans le tours de jeu
+    // @cardInstance : la carte que doit affronter le héro
+    // @callback : un function locale qui sera rappelée à la fin du tours
+    elCardCurrent.addEventListener('click', () => {new Turn(this.hero, cardCurrent, () => { this.disableCard(cardIndex)})});
+  }
+
+  disableCard(index) {
+
   }
 }
