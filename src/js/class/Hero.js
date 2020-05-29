@@ -86,7 +86,7 @@ export default class extends Character {
     if (this.curLife > this.maxLife) {
       this.curLife = this.maxLife;
     }
-    else if(this.curLife <= 0) {
+    else if (this.curLife <= 0) {
       this.curLife = 0;
     }
 

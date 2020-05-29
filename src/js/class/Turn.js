@@ -54,9 +54,12 @@ export default class Turn {
           }
         }
 
-        // TODO remplacer l'expression 1 !== 1 par l'expression suivante :
-        // si attaque du héro modulo 2 n'est pas égale à l'attaque de l'ennemi modulo 2
-        // et si l'attaque du héro n'est pas égale à 0
+        // SI J'AI UNE ARC
+        if (this.hero.weapon !== null && this.hero.weapon.weaponName === "Bow") {
+          this.hero.weapon.attack += 1;
+          this.hero.renderWeapon();
+        }
+
         if (heroAttack > 0 && heroAttack % 2 !== this.card.attack % 2) {
           this.hero.removeWeapon();
 

@@ -6,5 +6,9 @@
   {
     "name": "Dagger",
     "description": "every use decrease his damage by 1"
+  },
+  {
+    "name": "Bow",
+    "description": "every use increase his damage by 1"
   }
 ]
