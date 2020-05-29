@@ -6,14 +6,14 @@ export default class extends Character {
   #el;
   #maxLife;
   #curLife;
-  #attack;
+  #weapon;
 
   constructor(el) {
     super();
     this.#el = el || document.querySelector('[data-hero]');
     this.#maxLife = null;
     this.#curLife = null;
-    this.#attack = 0;
+    this.#weapon = null;
 
     this.init();
   }
@@ -26,12 +26,12 @@ export default class extends Character {
     return this.#maxLife;
   }
 
-  get attack() {
-    return this.#attack;
+  get weapon() {
+    return this.#weapon;
   }
 
-  set attack(attack) {
-    this.#attack = attack;
+  set weapon(weapon) {
+    this.#weapon = weapon;
   }
 
   // this.maxLife = number
@@ -98,18 +98,22 @@ export default class extends Character {
   }
 
   changeWeapon(weapon) {
-    this.elWeapon.innerHTML = ` 
-      <div class="shadow shadow--inner"><img src="img/w-${weapon.imagePath}.png" alt="${weapon.weaponName}"></div>
-      <div class="hero__damage">${weapon.attack}</div>
-    `;
+    this.weapon = weapon;
 
-    this.attack = weapon.attack;
+    this.renderWeapon(weapon);
   }
 
   removeWeapon() {
     this.elWeapon.innerHTML = '';
 
-    this.attack = 0;
+    this.weapon = null;
+  }
+
+  renderWeapon() {
+    this.elWeapon.innerHTML = ` 
+      <div class="shadow shadow--inner"><img src="img/w-${this.weapon.imagePath}.png" alt="${this.weapon.weaponName}"></div>
+      <div class="hero__damage">${this.weapon.attack}</div>
+    `;
   }
 
   death() {

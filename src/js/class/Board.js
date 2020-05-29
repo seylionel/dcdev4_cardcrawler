@@ -13,7 +13,7 @@ export default class {
   constructor(nbCards) {
     this.#el = document.querySelector('[data-board]');
     this.#hero = new Hero();
-    this.#nbCards = nbCards || 8;
+    this.#nbCards = nbCards || 32;
 
     this.init();
   }

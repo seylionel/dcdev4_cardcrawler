@@ -35,16 +35,28 @@ export default class Turn {
       case Weapon:
         this.hero.changeWeapon(this.card);
         break;
+      // Enemy
       default:
-        let potentialDamage = (this.card.attack * -1) + this.hero.attack,
+        let heroAttack = (this.hero.weapon !== null) ? this.hero.weapon.attack : 0,
+            potentialDamage = (this.card.attack * -1) + heroAttack,
             realDamage = (potentialDamage < 0) ? potentialDamage : 0;
         
         this.hero.changeLife(realDamage);
 
+        // SI J'AI UNE DAGUE
+        if (this.hero.weapon.name = "Dagger") {
+          if (this.hero.weapon.attack - 1 === 0) this.hero.removeWeapon();
+          
+          this.hero.weapon.attack -= 1;
+
+          this.hero.renderWeapon();
+        }
+
         // TODO remplacer l'expression 1 !== 1 par l'expression suivante :
         // si attaque du héro modulo 2 n'est pas égale à l'attaque de l'ennemi modulo 2
         // et si l'attaque du héro n'est pas égale à 0
-        if (this.hero.attack > 0 && this.hero.attack % 2 !== this.card.attack % 2) {
+        console.log(heroAttack);
+        if (heroAttack > 0 && heroAttack % 2 !== this.card.attack % 2) {
           this.hero.removeWeapon();
 
           new Modal(0);

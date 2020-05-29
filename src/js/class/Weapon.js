@@ -10,6 +10,7 @@ export default class Weapon {
 
   constructor() {
     // Affectation d'une arme aléatoire à la propriété privée #weapon
+    // TODO: Sélectionner une arme aléatoire du fichier weapons.json
     this.#weapon = weapons[0];
     this.#attack = Math.ceil(Math.random() * 9);
   }
