@@ -38,16 +38,16 @@ export default class Turn {
       // Enemy
       default:
         let heroAttack = (this.hero.weapon !== null) ? this.hero.weapon.attack : 0,
-            potentialDamage = (this.card.attack * -1) + heroAttack,
-            realDamage = (potentialDamage < 0) ? potentialDamage : 0;
-        
+          potentialDamage = (this.card.attack * -1) + heroAttack,
+          realDamage = (potentialDamage < 0) ? potentialDamage : 0;
+
         this.hero.changeLife(realDamage);
 
         // SI J'AI UNE DAGUE
-        if (this.hero.weapon.name = "Dagger") {
+        if (this.hero.weapon.name == "Dagger") {
           if (this.hero.weapon.attack - 1 === 0) this.hero.removeWeapon();
-          
-          this.hero.weapon.attack -= 1;
+
+          this.hero.weaponAttack -= 1;
 
           this.hero.renderWeapon();
         }
