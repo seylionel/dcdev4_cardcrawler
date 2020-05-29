@@ -65,7 +65,7 @@ export default class {
     else if (random < 8/10) {
       cardCurrent = new Item();
     }
-    else { 
+    else {
       cardCurrent = new Weapon();
     }
 
