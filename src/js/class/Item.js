@@ -1,5 +1,6 @@
 // Importation des données depuis un fichier statique
 import items from '../data/items.json';
+import { stringHandler } from '../helpers';
 
 // Création de la class Item
 export default class Item {
@@ -32,7 +33,7 @@ export default class Item {
   }
 
   get imagePath() {
-    return this.itemName.toLowerCase().replace(/[\s\']/g, "");
+    return stringHandler.imagePath(this.itemName);
   }
 
   get html() {

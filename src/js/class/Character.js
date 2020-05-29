@@ -1,6 +1,7 @@
 // Importation des données depuis un fichier statique
 import characters from '../data/characters.json';
-
+import { stringHandler } from '../helpers';
+  
 // Création de la class Character
 export default class Character {
   // Privatisation de la propriété character
@@ -39,8 +40,6 @@ export default class Character {
   // avant : Vel'koz
   // après : velkoz
   get imagePath() {
-    return this.characterName.toLowerCase().replace(/[\s\']/g, "");
-  }
-
-  
+    return stringHandler.imagePath(this.characterName);
+  }  
 }

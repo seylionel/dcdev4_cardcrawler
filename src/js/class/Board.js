@@ -13,7 +13,7 @@ export default class {
   constructor(nbCards) {
     this.#el = document.querySelector('[data-board]');
     this.#hero = new Hero();
-    this.#nbCards = nbCards || 32;
+    this.#nbCards = nbCards || 8;
 
     this.init();
   }
@@ -88,12 +88,11 @@ export default class {
 
     let cardsDone = document.querySelectorAll('.card[data-done="true"]');
 
-    // TODO
     // utiliser la méthode locale createCard avec l'index de la carte suivant
     // sauf si c'est la dernière carte
     // et si la carte suivant ne possède pas un attribut data-type
     if (cardsDone.length === this.nbCards) {
-      new Modal('Victory!', 'You\'ve won the game ! Please refresh the browser window to reset the game!');
+      new Modal(1);
     }
     else {
       if (cards[index + 1].getAttribute('data-type') === null) {
