@@ -34,10 +34,6 @@ export default class extends Character {
     this.#weapon = weapon;
   }
 
-  set weaponAttack(attack) {
-    this.weapon.attack = attack;
-  }
-
   // this.maxLife = number
   set maxLife(life) {
     this.#maxLife = life;
