@@ -59,10 +59,10 @@ export default class {
         random = Math.random(),
         cards = document.querySelectorAll('.card');
         
-    if (random < 6 / 10) {
+    if (random < 7 / 10) {
       cardCurrent = new Enemy();
     }
-    else if (random < 8/10) {
+    else if (random < 8 / 10) {
       cardCurrent = new Item();
     }
     else {

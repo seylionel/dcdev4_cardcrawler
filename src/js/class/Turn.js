@@ -43,21 +43,25 @@ export default class Turn {
 
         this.hero.changeLife(realDamage);
 
-        // SI J'AI UNE DAGUE
-        if (this.hero.weapon !== null && this.hero.weapon.weaponName === "Dagger") {
-          if (this.hero.weapon.attack - 1 === 0) {
-            this.hero.removeWeapon();
+        if (this.hero.weapon !== null) {
+          switch (this.hero.weapon.weaponName) {
+            // SI J'AI UNE DAGGER
+            case "Dagger":
+              if (this.hero.weapon.attack - 1 === 0) {
+                this.hero.removeWeapon();
+              }
+              else {
+                this.hero.weapon.attack -= 1;
+                this.hero.renderWeapon();
+              }
+              break;
+              
+            // SI J'AI UN BOW
+            case "Bow":
+              this.hero.weapon.attack += 1;
+              this.hero.renderWeapon();
+              break
           }
-          else {
-            this.hero.weapon.attack -= 1;
-            this.hero.renderWeapon();
-          }
-        }
-
-        // SI J'AI UNE ARC
-        if (this.hero.weapon !== null && this.hero.weapon.weaponName === "Bow") {
-          this.hero.weapon.attack += 1;
-          this.hero.renderWeapon();
         }
 
         if (heroAttack > 0 && heroAttack % 2 !== this.card.attack % 2) {
