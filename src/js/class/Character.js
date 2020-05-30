@@ -1,5 +1,6 @@
 // Importation des données depuis un fichier statique
 import characters from '../data/characters.json';
+import { stringHandler } from '../helpers';
 
 // Création de la class Character
 export default class Character {
@@ -17,11 +18,11 @@ export default class Character {
     this.#character = characters[Math.floor(Math.random() * characters.length)];
   }
 
-  
+
   // Getter de la propriété privée #character
   // Va nous servir à alimenter les getter ci-après
   get character() {
-    return this.#character; 
+    return this.#character;
   }
 
   // Getter de la propriété character.name
@@ -35,12 +36,10 @@ export default class Character {
   }
 
   // Transformation de la propriété characterName en path d'image
-  // On passe tout en minuscule  et supprime les espaces et les simples quotes
+  // On passe tout en minuscule (désolé Amélie) et supprime les espaces et les simples quotes
   // avant : Vel'koz
   // après : velkoz
   get imagePath() {
-    return this.characterName.toLowerCase().replace(/[\s\']/g, "");
+    return stringHandler.imagePath(this.characterName);
   }
-
-  
 }

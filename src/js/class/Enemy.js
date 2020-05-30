@@ -7,7 +7,7 @@ export default class Enemy extends Character {
 
   constructor() {
     super();
-    this.attack = 2 * this.characterLevel + Math.ceil(Math.random() * 5);
+    this.#attack = 2 * this.characterLevel + Math.ceil(Math.random() * 4);
   }
 
   get attack() {

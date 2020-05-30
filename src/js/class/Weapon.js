@@ -1,5 +1,6 @@
 // Importation des données depuis un fichier statique
 import weapons from '../data/weapons.json';
+import { stringHandler } from '../helpers';
 
 // Création de la class Weapon
 export default class Weapon {
@@ -30,7 +31,7 @@ export default class Weapon {
   }
 
   get imagePath() {
-    return this.weaponName.toLowerCase().replace(/[\s\']/g, "");
+    return stringHandler.imagePath(this.weaponName);
   }
 
   get html() {

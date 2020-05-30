@@ -41,7 +41,7 @@ export default class extends Character {
 
   // Method init
   init() {
-    this.maxLife = 90 + 10 * this.characterLevel;
+    this.maxLife = 45 + 5 * this.characterLevel;
     this.curLife = this.maxLife;
 
     this.el.innerHTML = `
@@ -71,11 +71,11 @@ export default class extends Character {
     this.elMaxLife = document.querySelector('[data-hero-maxlife]');
     this.elWeapon = document.querySelector('[data-hero-weapon]');
 
-    this.renderText(this.elMaxLife, this.maxLife);
-    this.renderText(this.elCurLife, this.curLife);
+    this.elMaxLife.innerText = this.maxLife;
+    this.elCurLife.innerText = this.curLife;
 
-    new Debug('-20', () => (this.changeLife(-20)));
-    new Debug('+20', () => (this.changeLife(20)));
+    new Debug('-20', () => { this.changeLife(-20) });
+    new Debug('+20', () => { this.changeLife(20) });
   }
 
   changeLife(points) {
@@ -88,12 +88,13 @@ export default class extends Character {
     }
     else if(this.curLife <= 0) {
       this.curLife = 0;
-      this.death();
     }
 
     // Mise à jour de l'interface utilisateur
-    this.renderText(this.elCurLife, this.curLife);
+    this.elCurLife.innerText = this.curLife;
     this.elLifeBar.style.minWidth = (this.curLife / this.maxLife * 100) + '%';
+
+    if (this.curLife === 0) this.death();
   }
 
   changeWeapon(weapon) {
@@ -105,17 +106,16 @@ export default class extends Character {
     this.attack = weapon.attack;
   }
 
+  removeWeapon() {
+    this.elWeapon.innerHTML = '';
+
+    this.attack = 0;
+  }
+
   death() {
-    new Modal('You\'re dead!', 'Please refresh the browser window to reset the game!');
-  }
-
-  //Method render
-  renderText(el, text) {
-    el.innerText = text;
-  }
-
-  crie() {
-    super.crie();
-    console.log(this.characterName + ' crie en tant qu\'héro !');
+    new Modal(2);
+    // TODO:
+    // Find another solution to kill the function
+    throw new Error("Stopping the function!");
   }
 }
