@@ -1,7 +1,7 @@
 // Importation des données depuis un fichier statique
 import characters from '../data/characters.json';
 import { stringHandler } from '../helpers';
-
+  
 // Création de la class Character
 export default class Character {
   // Privatisation de la propriété character
@@ -18,11 +18,11 @@ export default class Character {
     this.#character = characters[Math.floor(Math.random() * characters.length)];
   }
 
-
+  
   // Getter de la propriété privée #character
   // Va nous servir à alimenter les getter ci-après
   get character() {
-    return this.#character;
+    return this.#character; 
   }
 
   // Getter de la propriété character.name
@@ -41,5 +41,5 @@ export default class Character {
   // après : velkoz
   get imagePath() {
     return stringHandler.imagePath(this.characterName);
-  }
+  }  
 }

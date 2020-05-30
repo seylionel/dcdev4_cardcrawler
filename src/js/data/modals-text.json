@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Weapon broken!",
+    "description": "You have lost your weapon, pay attention to the parity of the weapon in relation to the enemy's attack (even or odd)."
+  },
+  {
+    "title": "Victory!",
+    "description": "You've won the game! Please refresh the browser window to reset the game!"
+  },
+  {
+    "title": "You're dead!",
+    "description": "Please refresh the browser window to reset the game!"
+  }
+]

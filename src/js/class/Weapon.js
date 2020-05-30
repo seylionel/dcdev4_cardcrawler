@@ -10,7 +10,7 @@ export default class Weapon {
 
   constructor() {
     // Affectation d'une arme aléatoire à la propriété privée #weapon
-    this.#weapon = weapons[0];
+    this.#weapon = weapons[Math.floor(Math.random() * weapons.length)];
     this.#attack = Math.ceil(Math.random() * 9);
   }
 
@@ -28,6 +28,10 @@ export default class Weapon {
 
   get attack() {
     return this.#attack;
+  }
+
+  set attack(attack) {
+    return this.#attack = attack;
   }
 
   get imagePath() {

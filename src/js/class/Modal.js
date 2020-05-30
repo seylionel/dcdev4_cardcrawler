@@ -31,12 +31,12 @@ export default class Modal {
   get modalText() {
     return this.#modalText;
   }
-
+  
   // Getter de la propriété privée title
   get modaleTextTitle() {
     return this.modalText.title;
   }
-
+  
   // Getter de la propriété privée description
   get modaleTextDescription() {
     return this.modalText.description;
