@@ -78,7 +78,7 @@
     "pug-cli2": "^1.0.0-alpha6.1",
     "reload": "^3.0.4",
     "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
